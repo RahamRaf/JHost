@@ -12,9 +12,10 @@ echo
 
 # Set env vars
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+LOGDIR=/var/log/jhost
 
 # Include require libraries
-LOGGER=${SCRIPTPATH}/bin/logger.sh
+source ${SCRIPTPATH}/bin/logger.sh
 
 # Run Initiation script
 source ${SCRIPTPATH}/bin/init.sh
