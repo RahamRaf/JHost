@@ -17,4 +17,4 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 source ${SCRIPTPATH}/bin/logger.sh
 
 # Run Initiation script
-source ${SCRIPTPATH}/inc/init.sh
+source ${SCRIPTPATH}/bin/init.sh
