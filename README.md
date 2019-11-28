@@ -4,13 +4,13 @@ Hosting script for JAssist servers
 ## INSTALL
 Download the package.
 
-Make the main script executable:
+Make the main script executable if already not:
 
-```chmod +x jhost.sh ```
+```sudo chmod +x jhost.sh ```
 
-Run the script:
+Run the script with sudo:
 
-```./jhost.sh```
+```sudo ./jhost.sh```
 
 
 ## Contact Info
