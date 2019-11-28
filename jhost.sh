@@ -14,7 +14,7 @@ echo
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 # Include require libraries
-source ${SCRIPTPATH}/bin/logger.sh
+LOGGER=${SCRIPTPATH}/bin/logger.sh
 
 # Run Initiation script
 source ${SCRIPTPATH}/bin/init.sh
