@@ -13,5 +13,8 @@ echo
 # Set env vars
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
+# Include require libraries
+source ${SCRIPTPATH}/bin/logger.sh
+
 # Run Initiation script
 source ${SCRIPTPATH}/inc/init.sh
