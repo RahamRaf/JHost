@@ -3,17 +3,17 @@
 # Initiation script
 
 echo
-logger "INFO: Initiation ..."
+jlogger "INFO: Initiation ..."
 echo
 
 # Update packages
 sudo apt-get update
-logger "INFO: Package lists updated."
+jlogger "INFO: Package lists updated."
 
 
 # Upgrade the system packages
 sudo apt-get -y upgrade
-logger "INFO: Packages upgraded."
+jlogger "INFO: Packages upgraded."
 
 # Installing initial packages
 sudo apt-get install bash-completion nano curl wget git python3
@@ -26,5 +26,5 @@ sudo locale-gen "en_US.UTF-8"
 
 
 echo
-logger "INFO: Initiation Finished."
+jlogger "INFO: Initiation Finished."
 echo

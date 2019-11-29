@@ -11,7 +11,7 @@ if [ ! -d $LOGDIR ]; then
 fi
 
 #Write log to file and screen function
-logger(){
+jlogger(){
 
   #check if there is msg to log
   if [ ! "$1" ]; then
