@@ -1,0 +1,15 @@
+J-HOST HELP
+This script helps manage JAssist Hosting Servers and Hosting functionalities
+
+Usage: sudo jhost [-[option1] [options1-1] [options1-2] ...] [-[option2] [options2-1 [options2-2] ...]]
+
+  No input:
+    The initiation script will be run: system packages will be updated, timezone will be set, etc.
+
+  -option:
+      -b: create system backup
+      -h: prints this help screen
+      -v: prints version of the scripts
+
+For more please read README.md
+Credit: Raham Rafiee (raham@joopea.com) - CC 2019 - JAssist by JoopeA
