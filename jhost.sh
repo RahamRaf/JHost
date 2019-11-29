@@ -19,3 +19,6 @@ source ${SCRIPTPATH}/bin/logger.sh
 
 # Run Initiation script
 source ${SCRIPTPATH}/bin/init.sh
+
+# Menu & Options
+source ${SCRIPTPATH}/bin/menu.sh
