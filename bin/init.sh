@@ -8,12 +8,12 @@ echo
 
 # Update packages
 sudo apt-get update
-jlogger "INFO: Package lists updated."
+jlogger "INFO: System package lists updated."
 
 
 # Upgrade the system packages
 sudo apt-get -y upgrade
-jlogger "INFO: Packages upgraded."
+jlogger "INFO: System packages upgraded."
 
 # Installing initial packages
 sudo apt-get install bash-completion nano curl wget git python3
@@ -24,6 +24,8 @@ sudo timedatectl set-timezone Europe/Amsterdam
 # Initialize system language
 sudo locale-gen "en_US.UTF-8"
 
+# Register the application to be used system wide
+sudo ln -s ${SCRIPTPATH}/jhost.sh /usr/bin/jhost
 
 echo
 jlogger "INFO: Initiation Finished."

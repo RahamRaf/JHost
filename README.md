@@ -6,12 +6,15 @@ Download the package.
 
 Make the main script executable if already not:
 
-```sudo chmod +x jhost.sh ```
+$ ```sudo chmod +x jhost.sh ```
 
 Run the script with sudo:
 
-```sudo ./jhost.sh```
+$ ```sudo ./jhost.sh```
 
+After the install, the program could be run by command 'jhost':
+
+$ ```sudo jhost [options]```
 
 ## Contact Info
 
