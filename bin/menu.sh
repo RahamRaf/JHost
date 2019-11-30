@@ -29,16 +29,28 @@ do
   IFS=' ' read -ra TMPOPT <<< "${OPTIS[$i]}"
 
   case ${TMPOPT[0]} in
-    b )
+    i ) # Initiate host server
+      # Ask user input for webserver
+      if [[ ! ${TMPOPT[1]} ]]; then
+        read -p "Specify the webserver (Nginx/Apache): " TMPWEB
+        TMPOPT[1]=${TMPWEB}
+      fi
+
+      # Lower case the input
+      TMPWEB=`echo ${TMPOPT[1]} | sed -e 's/\(.*\)/\L\1/'`
+      # Proceed installing webserver
+      sudo ${SCRIPTPATH}/bin/install_webserver.sh ${TMPWEB}
+      ;;
+    b ) # Backuo
       if [[ ${TMPOPT[1]} ]]; then
         # Backup specific host
-        source ${SCRIPTPATH}/bin/backup.sh ${TMPOPT[1]}
+        sudo ${SCRIPTPATH}/bin/backup.sh ${TMPOPT[1]}
       else
         # Backup system
-        source ${SCRIPTPATH}/bin/backup.sh system
+        sudo ${SCRIPTPATH}/bin/backup.sh system
       fi
       ;;
-    h )
+    h ) # Help
       cat ${SCRIPTPATH}/inc/man
       if [[ ${TMPOPT[1]} ]]; then
         jlogger "FATAL: -h (help) doesn't accept any arguments."
@@ -46,8 +58,8 @@ do
         break
       fi
       ;;
-    v )
-      echo "J-Host Version: 1"
+    v ) # Version
+      echo "J-Host Version: 0.1"
       if [[ ${TMPOPT[1]} ]]; then
         jlogger "FATAL: -h doesn't accept any arguments."
         exit 0
