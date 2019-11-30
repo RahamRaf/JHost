@@ -7,6 +7,10 @@ Usage: sudo jhost [-[option1] [options1-1] [options1-2] ...] [-[option2] [option
     The initiation script will be run: system packages will be updated, timezone will be set, etc.
 
   -option:
+      -i: install webserver on the system
+          It takes one argument from below options:
+            (n)ginx: installs the Nginx webserver and related packages (LEMP)
+            (a)pache: installs the Apache webserver and related packages (LAMP)
       -b: create system backup
       -h: prints this help screen
       -v: prints version of the scripts
