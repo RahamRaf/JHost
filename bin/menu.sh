@@ -28,19 +28,19 @@ do
   # Break the options into sub-options
   IFS=' ' read -ra TMPOPT <<< "${OPTIS[$i]}"
 
-  case ${TMPCMD[0]} in
+  case ${TMPOPT[0]} in
     b )
-      if [[ ${TMPCMD[1]} ]]; then
-        jlogger "FATAL: -b (runbackup) doesn't accept any arguments."
-        exit 0
-        break
+      if [[ ${TMPOPT[1]} ]]; then
+        # Backup specific host
+        source ${SCRIPTPATH}/bin/backup.sh ${TMPOPT[1]}
       else
-        source ${SCRIPTPATH}/bin/backup.sh
+        # Backup system
+        source ${SCRIPTPATH}/bin/backup.sh system
       fi
       ;;
     h )
       cat ${SCRIPTPATH}/inc/man
-      if [[ ${TMPCMD[1]} ]]; then
+      if [[ ${TMPOPT[1]} ]]; then
         jlogger "FATAL: -h (help) doesn't accept any arguments."
         exit 0
         break
@@ -48,7 +48,7 @@ do
       ;;
     v )
       echo "J-Host Version: 1"
-      if [[ ${TMPCMD[1]} ]]; then
+      if [[ ${TMPOPT[1]} ]]; then
         jlogger "FATAL: -h doesn't accept any arguments."
         exit 0
         break
