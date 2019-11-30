@@ -16,3 +16,48 @@ if [ ${#OPTIS[@]} -lt 1 ]; then
   IFS='-' read -ra OPTIS <<< "${TMPOPTIS}"
 
 fi
+
+
+# Set the user input (arguments/options)
+OPTNUM=${#OPTIS[@]}
+i=0
+
+while [[ ! $OPTNUM -eq 0 ]]
+do
+
+  # Break the options into sub-options
+  IFS=' ' read -ra TMPOPT <<< "${OPTIS[$i]}"
+
+  case ${TMPCMD[0]} in
+    b )
+      if [[ ${TMPCMD[1]} ]]; then
+        jlogger "FATAL: -b (runbackup) doesn't accept any arguments."
+        exit 0
+        break
+      else
+        source ${SCRIPTPATH}/bin/backup.sh
+      fi
+      ;;
+    h )
+      cat ${SCRIPTPATH}/inc/man
+      if [[ ${TMPCMD[1]} ]]; then
+        jlogger "FATAL: -h (help) doesn't accept any arguments."
+        exit 0
+        break
+      fi
+      ;;
+    v )
+      echo "J-Host Version: 1"
+      if [[ ${TMPCMD[1]} ]]; then
+        jlogger "FATAL: -h doesn't accept any arguments."
+        exit 0
+        break
+      fi
+      ;;
+    esac
+
+  #pass from the argument to next one
+  let i++
+  let OPTNUM--
+
+done
