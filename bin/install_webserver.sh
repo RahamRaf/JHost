@@ -11,6 +11,9 @@ if [[ "$1" -eq "nginx" ]] || [[ "$1" -eq "n" ]]; then
   jlogger "INFO: Installing Nginx"
   sudo apt-get install nginx
 
+  # Set the webserver name in settings folder
+  echo "nginx" > ${ETCDIR}/webserver
+
   # Certbot for SSL Certificates
   jlogger "INFO: Installing Certbot with Nginx plugin"
   sudo apt-get install certbot python-certbot-nginx
@@ -21,6 +24,9 @@ elif [[ "$1" -eq "apache" ]] || [[ "$1" -eq "a" ]]; then
   # Apache
   jlogger "INFO: Installing Apache2"
   sudo apt-get install apache2 libapache2-mod-php
+
+  # Set the webserver name in settings folder
+  echo "apache2" > ${ETCDIR}/webserver
 
   # Certbot for SSL Certificates
   jlogger "INFO: Installing Certbot with Apache plugin"
