@@ -13,6 +13,8 @@ echo
 # Set env vars
 # Log directory
 LOGDIR=/var/log/jhost
+# Settings directory
+ETCDIR=/etc/jhost
 
 # Get system vars/Info
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
