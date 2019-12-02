@@ -11,8 +11,11 @@ echo "-----------------------------------------------------------------"
 echo
 
 # Set env vars
-SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+# Log directory
 LOGDIR=/var/log/jhost
+
+# Get system vars/Info
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 # Include require libraries
 source ${SCRIPTPATH}/bin/logger.sh
