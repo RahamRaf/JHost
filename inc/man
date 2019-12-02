@@ -12,6 +12,8 @@ Usage: sudo jhost [-[option1] [options1-1] [options1-2] ...] [-[option2] [option
             (n)ginx: installs the Nginx webserver and related packages (LEMP)
             (a)pache: installs the Apache webserver and related packages (LAMP)
       -b: create system backup
+          It takes one argument, a host name to create backup from that specific host or
+          no argument which will create full system backup.
       -h: prints this help screen
       -v: prints version of the scripts
 

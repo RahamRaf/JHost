@@ -15,6 +15,8 @@ echo
 LOGDIR=/var/log/jhost
 # Settings directory
 ETCDIR=/etc/jhost
+# System backup directory
+BKDIR=/home/jhost/backups
 
 # Get system vars/Info
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"

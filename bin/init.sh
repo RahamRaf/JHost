@@ -7,11 +7,12 @@ jlogger "INFO: Initiation ..."
 echo
 
 # Initialize application folders
-# Settings folder Initiation
+# Settings folder
 if [ ! -d $ETCDIR ]; then
         sudo mkdir -p ${ETCDIR}
 	      jlogger "INFO: Settings folder '${ETCDIR}' has been created."
 fi
+
 
 # Update packages
 sudo apt-get update
