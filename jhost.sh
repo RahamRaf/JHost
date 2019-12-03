@@ -19,7 +19,9 @@ ETCDIR=/etc/jhost
 BKDIR=/home/jhost/backups
 
 # Get system vars/Info
-SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+SCRIPTPATH=$(dirname "$(readlink -f "$BASH_SOURCE")")
+#SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
 
 # Include require libraries
 source ${SCRIPTPATH}/bin/logger.sh
