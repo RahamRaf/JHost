@@ -3,21 +3,20 @@
 # Backup script for the system or (a) host(s)
 
 # Create backup from a web host (input)
-if [ $1 ]; then
+if [ ! -z "$1" ] && [ "$1" != "server" ]; then
 	WEBHOST="$1"
 
+	# TODO: Read host setting based on server type (apache2/nginx) from sites-available
 	# Server type
-	$SRVT=`cat ${ETCDIR}/server`
-
-	if [[ ! ${SRVT} ]]; then
+	#SRVT=${ETCDIR}/server
+	#if [ ! -f $SRVT ]; then
 		# Webserver is not available
-	  jlogger "FATAL: Can't create backup for host '${WEBHOST}'. Webserver settings '${SRVT}' is not found."
-	  exit 0
-
-	fi
+	  #jlogger "FATAL: Can't create backup for host '${WEBHOST}'. Webserver settings '${SRVT}' is not found."
+	  #exit 0
+	#fi
 
 	# Host root folder
-	$HOSTSET=/var/www/${WEBHOST}
+	HOSTSET=/var/www/${WEBHOST}
 
 	# Check specific host
 	if [ ! -d $HOSTSET ]; then
@@ -28,7 +27,7 @@ if [ $1 ]; then
 	fi
 
   # Backup folder
-	$BCKFOL=${HOSTSET}/backups
+	BCKFOL=${HOSTSET}/backups
 
 	if [ ! -d $BCKFOL ]; then
 		# Create backup folder
@@ -38,13 +37,14 @@ if [ $1 ]; then
 	fi
 
 	# Set backup file name
-	BCKFILE="${BCKFOL}/backup.${WEBHOST}.`date +%F`.tgz"
+	BCKFILE="${BCKFOL}/backup.${WEBHOST}.`date +%F`.tar.gz"
 
 	# Backup webroot
 	if [ ! -f ${BCKFILE} ]; then
 
     jlogger "INFO: Creating host backup '${BCKFILE}'"
-  	sudo tar cpzf ${BCKFILE} --directory=${HOSTSET} --exclude=${BCKFOL}
+
+  	sudo tar cpzf ${BCKFILE} --directory=${HOSTSET} --exclude=${BCKFOL} ${HOSTSET}
 
 		echo
 		jlogger "INFO: Backup of '${WEBHOST}' home folder is created."
@@ -71,7 +71,7 @@ else # Create system wide backup
   fi
 
   # Set backup file name
-  BCKFILE="${BKDIR}/backup-full.`cat /etc/hostname`.`date +%F`.tgz"
+  BCKFILE="${BKDIR}/backup-full.`cat /etc/hostname`.`date +%F`.tar.gz"
 
   # Create backup if the backup file for today doesn't exists
   if [ ! -f ${BCKFILE} ]; then

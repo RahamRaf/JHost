@@ -44,10 +44,10 @@ do
     b ) # Backup
       if [[ ${TMPOPT[1]} ]]; then
         # Backup specific host
-        sudo ${SCRIPTPATH}/bin/backup.sh ${TMPOPT[1]}
+        source ${SCRIPTPATH}/bin/backup.sh ${TMPOPT[1]}
       else
         # Backup system
-        sudo ${SCRIPTPATH}/bin/backup.sh system
+        source ${SCRIPTPATH}/bin/backup.sh system
       fi
       ;;
     h ) # Help
