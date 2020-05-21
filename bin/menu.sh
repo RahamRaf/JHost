@@ -41,7 +41,7 @@ do
       # Proceed installing webserver
       sudo ${SCRIPTPATH}/bin/install_webserver.sh ${TMPWEB}
       ;;
-    b ) # Backuo
+    b ) # Backup
       if [[ ${TMPOPT[1]} ]]; then
         # Backup specific host
         sudo ${SCRIPTPATH}/bin/backup.sh ${TMPOPT[1]}

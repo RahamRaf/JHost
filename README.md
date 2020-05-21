@@ -21,5 +21,3 @@ $ ```sudo jhost [options]```
 Created by: **Raham Rafiee** [raham@joopea.com](mailto:raham@joopea.com)
 
 Mother Project: **[JAssist](https://jassist.eu)**
-
-At: **[JoopeA Foundation](https://joopea.info)**
