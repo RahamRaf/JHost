@@ -46,13 +46,19 @@ if [ $1 ]; then
     jlogger "INFO: Creating host backup '${BCKFILE}'"
   	sudo tar cpzf ${BCKFILE} --directory=${HOSTSET} --exclude=${BCKFOL}
 
+		echo
+		jlogger "INFO: Backup of '${WEBHOST}' home folder is created."
+		echo
+
+		exit 0
+
   else
 		# Backup file existed. No overwrite
-  	jlogger "FATAL: Host backup can't be created. File '${BCKFILE}' is already existed!"
+  	jlogger "FATAL: File '${BCKFILE}' is already existed! Host backup can't be overwritten."
 		exit 0
 
   fi
-	
+
 	# ######################################
   # Make backup from database
 
@@ -73,9 +79,15 @@ else # Create system wide backup
     jlogger "INFO: Creating system backup '${BCKFILE}'"
   	sudo tar cpzf ${BCKFILE} --directory=/ --exclude=/proc --exclude=/tmp --exclude=/lost+found --exclude=${BKDIR} --exclude=/mnt --exclude=/sys --exclude=/var/spool --exclude='*/sock/*' --exclude='*.sock' /
 
+		echo
+		jlogger "INFO: Full system backup is created."
+		echo
+
+		exit 0
+
   else
 		# Backup file existed. No overwrite
-  	jlogger "FATAL: Backup doesn't created. Backup file '${BCKFILE}' is already existed!"
+  	jlogger "FATAL: Backup file '${BCKFILE}' is already existed! Backup file can't be overwritten."
 		exit 0
 
   fi
